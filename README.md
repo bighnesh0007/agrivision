@@ -1,6 +1,6 @@
 Agri Vision is an AI-integrated web portal provides a comprehensive solution that supports farmers throughout the entire agricultural process.
 
-(![Screenshot 2024-09-14 182353](https://github.com/user-attachments/assets/e1c456d7-8719-4c5c-b410-e0e813a67e3e)
+![Screenshot 2024-09-14 182353](https://github.com/user-attachments/assets/e1c456d7-8719-4c5c-b410-e0e813a67e3e)
 
 
 ![Screenshot 2024-09-14 182457](https://github.com/user-attachments/assets/8a519ffd-41b3-4880-9a17-5e92a759b6bf)
@@ -127,7 +127,7 @@ Data visualization is handled using `chart.js`, `react-chartjs-2`, and `recharts
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
-(![Screenshot 2024-09-14 182629](https://github.com/user-attachments/assets/02b5e000-da53-40ec-8fc3-82956f5704d6)
+![Screenshot 2024-09-14 182629](https://github.com/user-attachments/assets/02b5e000-da53-40ec-8fc3-82956f5704d6)
 
 <br>
 
@@ -147,7 +147,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 
 
-(https://github.com/user-attachments/assets/8873fea0-5f71-4533-a56e-8064f446217c)
+!(https://github.com/user-attachments/assets/8873fea0-5f71-4533-a56e-8064f446217c)
 
 ![image](https://github.com/user-attachments/assets/be27e20e-0ab2-4024-9a74-9b7f644d4942)
 
