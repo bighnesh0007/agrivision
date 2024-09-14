@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const buffer = Buffer.from(image.split(',')[1], 'base64')
 
     // Call Gemini API
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+    const model = await genAI.getGenerativeModel({ model: 'gemini-1.5-flash' }) // Ensure this is resolved correctly.
     const result = await model.generateContent([
       `You are an expert soil scientist with over 15 years of experience in analyzing soil samples and images. Your expertise lies in identifying soil types, textures, and colors, as well as recommending suitable crops based on the soil characteristics you observe.
 
@@ -38,8 +38,7 @@ If applicable, you may also include how soil health can be enhanced for better c
       }
     ])
 
-    const response = await result.response
-    const analysis = response.text()
+    const analysis = result.response?.text()
 
     return NextResponse.json({ analysis })
   } catch (error) {
@@ -48,10 +47,5 @@ If applicable, you may also include how soil health can be enhanced for better c
   }
 }
 
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '4mb' // Set the body parser limit to 4MB
-    }
-  }
-}
+// Update to new API config format
+export const runtime = 'edge' // If edge runtime is required, otherwise use 'nodejs'
