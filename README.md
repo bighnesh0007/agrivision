@@ -1,8 +1,11 @@
 Agri Vision is an AI-integrated web portal provides a comprehensive solution that supports farmers throughout the entire agricultural process.
 
-                                                         AgriVision Demo Video
+<h1 align="center"><b>AgriVision Demo Video</b></h1>
 
-[Click here to watch the video](https://drive.google.com/file/d/1ReIWEh9UsklkDAtqnIin3W0jXmRWJxe0/view?usp=sharing)
+<p align="center">
+  <a href="https://drive.google.com/file/d/1ReIWEh9UsklkDAtqnIin3W0jXmRWJxe0/view?usp=sharing"><b>Demo Video</b></a>
+</p>
+
 
 
                                     
