@@ -3,7 +3,7 @@ Agri Vision is an AI-integrated web portal provides a comprehensive solution tha
 <h1 align="center"><b>AgriVision Demo Video</b></h1>
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1D98wXEtHDkra9ZxQ-Y9BirATNXk7G3sl/view?usp=sharing"><b>Demo Video</b></a>
+  <a href="https://drive.google.com/file/d/1T3apgBeVEVAWbRSP5-9GjMC3mMwuUdC6/view?usp=drive_link"><b>Demo Video</b></a>
 </p>
 
 
