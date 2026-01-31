@@ -1,41 +1,54 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
-
-// Initialize the Google Generative AI client with your API key
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
 
 export async function POST(request: NextRequest) {
   try {
-    // Parse the incoming request JSON
     const { message } = await request.json();
 
-    // Validate the input to ensure all required fields are present
-    if (!message ) {
-      return NextResponse.json({ error: "Input are needed." }, { status: 400 });
+    // Validate input
+    if (!message) {
+      return NextResponse.json({ error: "Input is needed." }, { status: 400 });
     }
 
-    // Get the generative model instance
-    const model = await genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // Use OpenRouter API (free tier: Meta Llama 3.1 8B - no credit card needed)
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "meta-llama/llama-3.1-8b-instruct:free", // Free model
+        messages: [
+          {
+            role: "system",
+            content: "You are an expert agricultural advisor for Indian farmers. Provide practical farming advice.",
+          },
+          {
+            role: "user",
+            content: message,
+          },
+        ],
+        temperature: 0.7,
+      }),
+    });
 
-    // Define the prompt for the generative AI
-    const prompt = `${message}`;
+    if (!response.ok) {
+      throw new Error(`OpenRouter API error: ${response.status}`);
+    }
 
-    // Generate content using the provided prompt
-    // const result = await model.generateContent(prompt);
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const data = await response.json();
+    const text = data.choices[0]?.message?.content;
 
-    // // Check if the response object is valid and has text
-    // if (!result || !result.text) {
-    //   throw new Error("Failed to generate response content.");
-    // }
+    if (!text) {
+      throw new Error("No response generated");
+    }
 
-    // Retrieve and return the text response
     return NextResponse.json({ result: text });
-
   } catch (error) {
-    console.error("Error generating crop recommendation:", error);
-    return NextResponse.json({ error: "Failed to generate crop recommendation" }, { status: 500 });
+    console.error("Error generating response:", error);
+    return NextResponse.json(
+      { error: "Failed to generate response" },
+      { status: 500 }
+    );
   }
 }
